@@ -1,16 +1,6 @@
 #!/usr/bin/env node
 
-// usage
-//
-// privkey
-// pubkey hex
-// txo
-// vout
-// amount
-// address hex
-// value minus fee
-
-import { Address, Script, Signer, Tap, Tx } from '@cmdcode/tapscript'
+import { Address, Signer, Tx } from '@cmdcode/tapscript'
 
 // Sample secret / public key pair.
 const seckey = process.argv[2] || '018f28657fdd6a3558c83a2f0845f1d6a05b841156718bb84551a38ac2ea0ee5'
@@ -19,8 +9,9 @@ const pubkey = process.argv[3] || '5f49bb8ae1649065012ba6aa02fb3ad86af35ac6fa5c9
 // For key-spends, we need to tweak both the secret key and public key.
 // const [tseckey] = Tap.getSecKey(seckey)
 // const [tpubkey] = Tap.getPubKey(pubkey)
-const fee = 20000
 
+// fee
+const fee = 20000
 
 var outlen = (process.argv.length - 7) / 2
 
@@ -45,7 +36,7 @@ for (let i = 0; i < outlen; i++) {
     // We are locking up 99_000 sats (minus 1000 sats for fees.)
     value: outAmount[i],
     // We are locking up funds to this address.
-    scriptPubKey: outAddress[i]
+    scriptPubKey: ['OP_1', outAddress[i]]
   })
 }
 
@@ -66,8 +57,6 @@ const txdata = Tx.create({
   }],
   vout: voutobj
 })
-
-
 
 console.error(JSON.stringify(txdata, null, 2))
 
