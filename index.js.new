@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-// Import tapscript modules
 import { Address, Signer, Tx } from '@cmdcode/tapscript'
 
 // Sample secret / public key pair.

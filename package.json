@@ -4,7 +4,8 @@
   "description": "txbuilder",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --experimental-global-webcrypto index.js"
   },
   "type": "module",
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/melvincarvalho/txbuilder#readme",
   "dependencies": {
-    "@cmdcode/tapscript": "^1.4.6"
+    "@cmdcode/tapscript": "^1.4.6",
+    "crypto": "^1.0.1"
   }
 }

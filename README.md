@@ -1,5 +1,3 @@
-
-
 <div align="center">  
   <h1>txbuilder</h1>
 </div>
@@ -23,7 +21,39 @@
 
 ## Introduction
 
-txbuilder
+txbuilder is a tool for building Bitcoin transactions using the tapscript library.
+
+## Installation
+
+```bash
+git clone https://github.com/melvincarvalho/txbuilder.git
+cd txbuilder
+npm install
+chmod +x txbuilder.sh
+```
+
+## Usage
+
+### Using the wrapper script (recommended)
+
+The simplest way to run txbuilder is to use the wrapper script:
+
+```bash
+./txbuilder.sh [seckey] [pubkey] [txid] [vout] [amount] [outAddress1] [outAmount1] [outAddress2] [outAmount2] ...
+```
+
+### Direct Node.js execution
+
+If you prefer to run it directly with Node.js, you'll need to use the `--experimental-global-webcrypto` flag:
+
+```bash
+node --experimental-global-webcrypto index.js [seckey] [pubkey] [txid] [vout] [amount] [outAddress1] [outAmount1] [outAddress2] [outAmount2] ...
+```
+
+## Requirements
+
+- Node.js v18+
+- The `@cmdcode/tapscript` package
 
 ## License
 
