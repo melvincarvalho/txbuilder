@@ -14,7 +14,7 @@ const args = process.argv.slice(2)
 
 // Private/public key
 const seckey = args[0] || '018f28657fdd6a3558c83a2f0845f1d6a05b841156718bb84551a38ac2ea0ee5'
-const pubkey = args[1] || '5f49bb8ae1649065012ba6aa02fb3ad86af35ac6fa5c9f99704944877abd8517'
+const pubkey = args[1] || Signer.taproot.getPublicKey(seckey)
 
 // Input transaction details
 const txid = args[2] || 'e1934c36263b83ab2b36c6595ff6751421a11f45fdacb3a9cf7ba746140ed850'
